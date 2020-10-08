@@ -8,7 +8,7 @@
 " --------------
 
 if !has("gui_running") && &t_Co < 256
-  finish
+    finish
 endif
 
 if ! exists("g:one_monokai_gui_italic")
@@ -25,43 +25,43 @@ set background=dark
 hi clear
 
 if exists("syntax_on")
-  syntax reset
+    syntax reset
 endif
 
 let colors_name = "one_monokai"
 
 function! s:h(group, style)
-  let s:ctermformat = "NONE"
-  let s:guiformat = "NONE"
-  if has_key(a:style, "format")
-    let s:ctermformat = a:style.format
-    let s:guiformat = a:style.format
-  endif
-  if g:one_monokai_term_italic == 0
-    let s:ctermformat = substitute(s:ctermformat, ",italic", "", "")
-    let s:ctermformat = substitute(s:ctermformat, "italic,", "", "")
-    let s:ctermformat = substitute(s:ctermformat, "italic", "", "")
-  endif
-  if g:one_monokai_gui_italic == 0
-    let s:guiformat = substitute(s:guiformat, ",italic", "", "")
-    let s:guiformat = substitute(s:guiformat, "italic,", "", "")
-    let s:guiformat = substitute(s:guiformat, "italic", "", "")
-  endif
-  if g:one_monokai_termcolors == 16
-    let l:ctermfg = (has_key(a:style, "fg") ? a:style.fg.cterm16 : "NONE")
-    let l:ctermbg = (has_key(a:style, "bg") ? a:style.bg.cterm16 : "NONE")
-  else
-    let l:ctermfg = (has_key(a:style, "fg") ? a:style.fg.cterm : "NONE")
-    let l:ctermbg = (has_key(a:style, "bg") ? a:style.bg.cterm : "NONE")
-  end
-  execute "highlight" a:group
-    \ "guifg="   (has_key(a:style, "fg")      ? a:style.fg.gui   : "NONE")
-    \ "guibg="   (has_key(a:style, "bg")      ? a:style.bg.gui   : "NONE")
-    \ "guisp="   (has_key(a:style, "sp")      ? a:style.sp.gui   : "NONE")
-    \ "gui="     (!empty(s:guiformat) ? s:guiformat   : "NONE")
-    \ "ctermfg=" . l:ctermfg
-    \ "ctermbg=" . l:ctermbg
-    \ "cterm="   (!empty(s:ctermformat) ? s:ctermformat   : "NONE")
+    let s:ctermformat = "NONE"
+    let s:guiformat = "NONE"
+    if has_key(a:style, "format")
+        let s:ctermformat = a:style.format
+        let s:guiformat = a:style.format
+    endif
+    if g:one_monokai_term_italic == 0
+        let s:ctermformat = substitute(s:ctermformat, ",italic", "", "")
+        let s:ctermformat = substitute(s:ctermformat, "italic,", "", "")
+        let s:ctermformat = substitute(s:ctermformat, "italic", "", "")
+    endif
+    if g:one_monokai_gui_italic == 0
+        let s:guiformat = substitute(s:guiformat, ",italic", "", "")
+        let s:guiformat = substitute(s:guiformat, "italic,", "", "")
+        let s:guiformat = substitute(s:guiformat, "italic", "", "")
+    endif
+    if g:one_monokai_termcolors == 16
+        let l:ctermfg = (has_key(a:style, "fg") ? a:style.fg.cterm16 : "NONE")
+        let l:ctermbg = (has_key(a:style, "bg") ? a:style.bg.cterm16 : "NONE")
+    else
+        let l:ctermfg = (has_key(a:style, "fg") ? a:style.fg.cterm : "NONE")
+        let l:ctermbg = (has_key(a:style, "bg") ? a:style.bg.cterm : "NONE")
+    end
+    execute "highlight" a:group
+                \ "guifg="   (has_key(a:style, "fg")      ? a:style.fg.gui   : "NONE")
+                \ "guibg="   (has_key(a:style, "bg")      ? a:style.bg.gui   : "NONE")
+                \ "guisp="   (has_key(a:style, "sp")      ? a:style.sp.gui   : "NONE")
+                \ "gui="     (!empty(s:guiformat) ? s:guiformat   : "NONE")
+                \ "ctermfg=" . l:ctermfg
+                \ "ctermbg=" . l:ctermbg
+                \ "cterm="   (!empty(s:ctermformat) ? s:ctermformat   : "NONE")
 endfunction
 
 " Palettes
@@ -156,10 +156,10 @@ call s:h("Type",          { "fg": s:aqua })
 call s:h("Structure",     { "fg": s:aqua })
 call s:h("StorageClass",  { "fg": s:aqua })
 call s:h("Typedef",       { "fg": s:aqua })
-    
+
 call s:h("Identifier",    { "fg": s:green })
 call s:h("Function",      { "fg": s:green })
-                         
+
 call s:h("Statement",     { "fg": s:pink })
 call s:h("Operator",      { "fg": s:pink })
 call s:h("Label",         { "fg": s:pink })
@@ -173,7 +173,7 @@ call s:h("Include",       { "fg": s:pink })
 call s:h("Define",        { "fg": s:pink })
 call s:h("Macro",         { "fg": s:green })
 call s:h("PreCondit",     { "fg": s:green })
-                           
+
 call s:h("Special",       { "fg": s:purple })
 call s:h("SpecialChar",   { "fg": s:pink })
 call s:h("Delimiter",     { "fg": s:pink })
@@ -183,7 +183,7 @@ call s:h("Tag",           { "fg": s:pink })
 
 call s:h("Todo",          { "fg": s:orange,   "format": "bold,italic" })
 call s:h("Comment",       { "fg": s:warmgrey, "format": "italic" })
-                         
+
 call s:h("Underlined",    { "fg": s:green })
 call s:h("Ignore",        {})
 call s:h("Error",         { "fg": s:red, "bg": s:darkred })
@@ -191,22 +191,22 @@ call s:h("Error",         { "fg": s:red, "bg": s:darkred })
 "Neovim Terminal Colors
 "------------
 if has('nvim')
-	let g:terminal_color_0  = s:black
-	let g:terminal_color_1  = s:red
-	let g:terminal_color_2  = s:green
-	let g:terminal_color_3  = s:yellow
-	let g:terminal_color_4  = s:aqua
-	let g:terminal_color_5  = s:purple
-	let g:terminal_color_6  = s:aqua
-	let g:terminal_color_7  = s:white
-	let g:terminal_color_8  = s:black
-	let g:terminal_color_9  = s:red
-	let g:terminal_color_10  = s:green
-	let g:terminal_color_11  = s:yellow
-	let g:terminal_color_12  = s:aqua
-	let g:terminal_color_13  = s:purple
-	let g:terminal_color_14  = s:aqua
-	let g:terminal_color_15  = s:white
+    let g:terminal_color_0  = s:black
+    let g:terminal_color_1  = s:red
+    let g:terminal_color_2  = s:green
+    let g:terminal_color_3  = s:yellow
+    let g:terminal_color_4  = s:aqua
+    let g:terminal_color_5  = s:purple
+    let g:terminal_color_6  = s:aqua
+    let g:terminal_color_7  = s:white
+    let g:terminal_color_8  = s:black
+    let g:terminal_color_9  = s:red
+    let g:terminal_color_10  = s:green
+    let g:terminal_color_11  = s:yellow
+    let g:terminal_color_12  = s:aqua
+    let g:terminal_color_13  = s:purple
+    let g:terminal_color_14  = s:aqua
+    let g:terminal_color_15  = s:white
 endif
 
 
@@ -270,7 +270,7 @@ call s:h("typescriptOperator",            { "fg": s:pink })
 call s:h("typescriptEndColons",           { "fg": s:white })
 call s:h("typescriptObjectLabel",         { "fg": s:green })
 call s:h("typescriptAmbientDeclaration",  { "fg": s:pink })
-                                 
+
 " Html
 call s:h("htmlTag",             { "fg": s:white })
 call s:h("htmlEndTag",          { "fg": s:white })
@@ -337,36 +337,50 @@ call s:h("cStorageClass",               { "fg": s:pink})
 call s:h("cInclude",                    { "fg": s:pink})
 call s:h("cDefine",                     { "fg": s:pink})
 
+" latex
+call s:h("texStatement",                     { "fg": s:aqua})
+call s:h("texSection",                     { "fg": s:aqua})
+call s:h("texBeginEnd",                     { "fg": s:aqua})
+call s:h("texBeginEndName",                     { "fg": s:pink})
+call s:h("texMathMatcher",                     { "fg": s:green})
+call s:h("texMathZoneAmsDS",                     { "fg": s:purple})
+call s:h("texMathZoneCS",                     { "fg": s:purple})
+
+" vim
+call s:h("vimCommentTitle",                     { "fg": s:pink})
+call s:h("vimFuncName",                     { "fg": s:aqua})
+call s:h("vimUserFunc",                     { "fg": s:aqua})
+
 "Operator Highlighting (from https://github.com/Valloric/vim-operator-highlight)
 "-------------------
 
 if exists( 'g:loaded_operator_highlight' )
-  finish
+    finish
 else
-  let g:loaded_operator_highlight = 1
+    let g:loaded_operator_highlight = 1
 endif
 
 if !exists( 'g:ophigh_color_gui' )
-  let g:ophigh_color_gui = "#E06C75"
+    let g:ophigh_color_gui = "#E06C75"
 endif
 
 if !exists( 'g:ophigh_highlight_link_group' )
-  let g:ophigh_highlight_link_group = ""
+    let g:ophigh_highlight_link_group = ""
 endif
 
 
 if !exists( 'g:ophigh_color' )
-  let g:ophigh_color = "168"
+    let g:ophigh_color = "168"
 endif
 
 if !exists( 'g:ophigh_filetypes_to_ignore' )
-  let g:ophigh_filetypes_to_ignore = {}
+    let g:ophigh_filetypes_to_ignore = {}
 endif
 
 fun! s:IgnoreFiletypeIfNotSet( file_type )
-  if get( g:ophigh_filetypes_to_ignore, a:file_type, 1 )
-    let g:ophigh_filetypes_to_ignore[ a:file_type ] = 1
-  endif
+    if get( g:ophigh_filetypes_to_ignore, a:file_type, 1 )
+        let g:ophigh_filetypes_to_ignore[ a:file_type ] = 1
+    endif
 endfunction
 
 call s:IgnoreFiletypeIfNotSet('help')
@@ -384,23 +398,23 @@ call s:IgnoreFiletypeIfNotSet('notes')
 call s:IgnoreFiletypeIfNotSet('jinja')
 
 fun! s:HighlightOperators()
-  if get( g:ophigh_filetypes_to_ignore, &filetype, 0 )
-    return
-  endif
+    if get( g:ophigh_filetypes_to_ignore, &filetype, 0 )
+        return
+    endif
 
-  " for the last element of the regex, see :h /\@!
-  " basically, searching for "/" is more complex since we want to avoid
-  " matching against "//" or "/*" which would break C++ comment highlighting
-  syntax match OperatorChars "?\|+\|-\|\*\|:\|<\|>\|&\||\|\^\|!\|\~\|%\|=\|/\(/\|*\)\@!"
+    " for the last element of the regex, see :h /\@!
+    " basically, searching for "/" is more complex since we want to avoid
+    " matching against "//" or "/*" which would break C++ comment highlighting
+    syntax match OperatorChars "?\|+\|-\|\*\|:\|<\|>\|&\||\|\^\|!\|\~\|%\|=\|/\(/\|*\)\@!"
 
 
 
-  if g:ophigh_highlight_link_group != "" 
-    exec "hi link OperatorChars " . g:ophigh_highlight_link_group
-  else
-    exec "hi OperatorChars guifg=" . g:ophigh_color_gui . " gui=NONE"
-    exec "hi OperatorChars ctermfg=" . g:ophigh_color . " cterm=NONE"
-  endif
+    if g:ophigh_highlight_link_group != "" 
+        exec "hi link OperatorChars " . g:ophigh_highlight_link_group
+    else
+        exec "hi OperatorChars guifg=" . g:ophigh_color_gui . " gui=NONE"
+        exec "hi OperatorChars ctermfg=" . g:ophigh_color . " cterm=NONE"
+    endif
 
 endfunction
 
