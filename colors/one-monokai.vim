@@ -82,6 +82,7 @@ let s:warmgrey    = { "gui": "#676E7B", "cterm": "60" }
 let s:pink        = { "gui": "#E06C75", "cterm": "168" }
 let s:green       = { "gui": "#98C379", "cterm": "114" }
 let s:aqua        = { "gui": "#56b6c2", "cterm": "73" }
+let s:blue        = { "gui": "#61afef", "cterm": "73" }
 let s:yellow      = { "gui": "#E5C07B", "cterm": "180" }
 let s:orange      = { "gui": "#D19A66", "cterm": "173" }
 let s:purple      = { "gui": "#C678DD", "cterm": "176" }
@@ -336,7 +337,13 @@ call s:h("cStructure",                  { "fg": s:aqua})
 call s:h("cStorageClass",               { "fg": s:pink})
 call s:h("cInclude",                    { "fg": s:pink})
 call s:h("cDefine",                     { "fg": s:pink})
+call s:h("cCustomDot",                     { "fg": s:pink})
+call s:h("cCustomClass",                     { "fg": s:blue})
+call s:h("cCustomScope",                     { "fg": s:pink})
 
+" cpp
+
+call s:h("cppSTLnamespace",                     { "fg": s:yellow})
 " latex
 call s:h("texStatement",                     { "fg": s:aqua})
 call s:h("texSection",                     { "fg": s:aqua})
@@ -350,6 +357,14 @@ call s:h("texMathZoneCS",                     { "fg": s:purple})
 call s:h("vimCommentTitle",                     { "fg": s:pink})
 call s:h("vimFuncName",                     { "fg": s:aqua})
 call s:h("vimUserFunc",                     { "fg": s:aqua})
+
+" r
+call s:h("rLstElmt",                     { "fg": s:green})
+call s:h("rFunction",                     { "fg": s:aqua})
+
+" python
+
+call s:h("pythonAttribute",                     { "fg": s:aqua})
 
 "Operator Highlighting (from https://github.com/Valloric/vim-operator-highlight)
 "-------------------
