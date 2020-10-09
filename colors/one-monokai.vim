@@ -177,7 +177,7 @@ call s:h("PreCondit",     { "fg": s:green })
 
 call s:h("Special",       { "fg": s:purple })
 call s:h("SpecialChar",   { "fg": s:pink })
-call s:h("Delimiter",     { "fg": s:pink })
+call s:h("Delimiter",     { "fg": s:white })
 call s:h("SpecialComment",{ "fg": s:aqua })
 call s:h("Tag",           { "fg": s:pink })
 "        Debug"
@@ -233,9 +233,6 @@ call s:h("SyntasticWarningSign",    { "fg": s:lightblack, "bg": s:orange })
 
 " Language highlight
 " ------------------
-
-" Java properties
-call s:h("jpropertiesIdentifier",   { "fg": s:pink })
 
 " Vim command
 call s:h("vimCommand",              { "fg": s:pink })
@@ -333,25 +330,53 @@ call s:h("erubyRailsMethod",            { "fg": s:aqua })
 
 " c
 call s:h("cLabel",                      { "fg": s:pink })
-call s:h("cStructure",                  { "fg": s:aqua})
+call s:h("cStructure",                  { "fg": s:green})
 call s:h("cStorageClass",               { "fg": s:pink})
 call s:h("cInclude",                    { "fg": s:pink})
 call s:h("cDefine",                     { "fg": s:pink})
 call s:h("cCustomDot",                     { "fg": s:pink})
 call s:h("cCustomClass",                     { "fg": s:blue})
+call s:h("cCustomMemVar",                     { "fg": s:yellow})
 call s:h("cCustomScope",                     { "fg": s:pink})
+call s:h("cCustomFunc",                     { "fg": s:blue})
+call s:h("cAnsiFunction",                     { "fg": s:blue})
+call s:h("cConditional",                     { "fg": s:orange})
+call s:h("cSpecial",                     { "fg": s:purple})
 
 " cpp
-
 call s:h("cppSTLnamespace",                     { "fg": s:yellow})
+
+" Java 
+call s:h("jpropertiesIdentifier",   { "fg": s:pink })
+call s:h("javaCommentTitle",   { "fg": s:warmgrey })
+call s:h("javaScopeDecl",   { "fg": s:pink })
+call s:h("javaStorageClass",   { "fg": s:green })
+call s:h("javaClassDecl",   { "fg": s:blue })
+
+" asm
+call s:h("asmDirective",   { "fg": s:blue })
+call s:h("asmIdentifier",   { "fg": s:aqua })
+
 " latex
-call s:h("texStatement",                     { "fg": s:aqua})
-call s:h("texSection",                     { "fg": s:aqua})
+call s:h("texStatement",                     { "fg": s:green})
+call s:h("texSpecialChar",                     { "fg": s:purple})
+
+call s:h("texSection",                     { "fg": s:blue})
+call s:h("texSectionZone",                     { "fg": s:pink})
+
+call s:h("texDocType",                     { "fg": s:yellow})
 call s:h("texBeginEnd",                     { "fg": s:aqua})
 call s:h("texBeginEndName",                     { "fg": s:pink})
-call s:h("texMathMatcher",                     { "fg": s:green})
+
+call s:h("texBoldStyle",                     { "fg": s:pink})
+call s:h("texItalStyle",                     { "fg": s:pink})
+call s:h("texItalBoldStyle",                     { "fg": s:pink})
+
+call s:h("texMathMatcher",                     { "fg": s:pink})
+call s:h("texMathSymbol",                     { "fg": s:yellow})
 call s:h("texMathZoneAmsDS",                     { "fg": s:purple})
-call s:h("texMathZoneCS",                     { "fg": s:purple})
+call s:h("texMathZoneCS",                     { "fg": s:yellow})
+call s:h("texMathZoneX",                     { "fg": s:yellow})
 
 " vim
 call s:h("vimCommentTitle",                     { "fg": s:pink})
